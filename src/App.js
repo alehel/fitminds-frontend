@@ -20,25 +20,23 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>
-          fitminds.run
-        </h1>
+      <h1>
+        fitminds.run
+      </h1>
 
-        {accessDenied && 
-          <p>Failed to authenticate with strava</p>
-        }
-        
-        {stravaCode !== undefined 
-          ? <div>Your Strava Code is: {stravaCode}</div>
-          : <a
-              className="App-link"
-              href="https://www.strava.com/oauth/authorize?client_id=44056&redirect_uri=http://localhost:3000&response_type=code"
-              rel="noopener noreferrer">
-              Log in with Strava
-            </a>
-        }
-      </header>
+      {accessDenied && 
+        <p>Failed to authenticate with strava</p>
+      }
+      
+      {stravaCode !== undefined 
+        ? <div>Your Strava Code is: {stravaCode}</div>
+        : <a
+            className="App-link"
+            href="https://www.strava.com/oauth/authorize?client_id=44056&redirect_uri=http://localhost:3000&response_type=code"
+            rel="noopener noreferrer">
+            Log in with Strava
+          </a>
+      }
     </div>
   );
 }
