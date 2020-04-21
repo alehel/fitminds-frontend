@@ -32,7 +32,7 @@ function App() {
         ? <div>Your Strava Code is: {stravaCode}</div>
         : <a
             className="App-link"
-            href="https://www.strava.com/oauth/authorize?client_id=44056&redirect_uri=http://localhost:3000&response_type=code"
+            href="https://www.strava.com/oauth/authorize?client_id=44056&redirect_uri=http://localhost:3000&response_type=code&scope=read"
             rel="noopener noreferrer">
             Log in with Strava
           </a>
