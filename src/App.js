@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import Athletes from './cmp/athletes/Athletes';
 
 function App() {
   const [stravaCode, setStravaCode] = useState(undefined);
@@ -37,6 +38,7 @@ function App() {
             Log in with Strava
           </a>
       }
+      <Athletes/>
     </div>
   );
 }
