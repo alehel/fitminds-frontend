@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [stravaCode, setStravaCode] = useState(undefined);
+  const [accessDenied, setAccessDenied] = useState(false);
+
+  useEffect(() => {
+    const error = new URLSearchParams(window.location.search).get('error');
+
+    if(error) {
+      setAccessDenied(true);
+    } else {
+      const code = new URLSearchParams(window.location.search).get('code');
+      if(code !== null) {
+        setStravaCode(code);
+      }
+    }
+  }, [stravaCode, accessDenied]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>
+        fitminds.run
+      </h1>
+
+      {accessDenied && 
+        <p>Failed to authenticate with strava</p>
+      }
+      
+      {stravaCode !== undefined 
+        ? <div>Your Strava Code is: {stravaCode}</div>
+        : <a
+            className="App-link"
+            href="https://www.strava.com/oauth/authorize?client_id=44056&redirect_uri=http://localhost:3000&response_type=code&scope=read"
+            rel="noopener noreferrer">
+            Log in with Strava
+          </a>
+      }
     </div>
   );
 }
