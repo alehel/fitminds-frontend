@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Athletes from './cmp/athletes/Athletes';
+import Athlete from './cmp/athletes/Athlete';
 
 function App() {
   const [stravaCode, setStravaCode] = useState(undefined);
@@ -39,6 +40,7 @@ function App() {
           </a>
       }
       <Athletes/>
+      <Athlete id="50572954"/>
     </div>
   );
 }
