@@ -20,13 +20,11 @@ let LandingPage = () => {
     return (
         <div className="App">
             <h1>
-                fitminds.run
-      </h1>
-
+                fitminds.run>
+            </h1>
             {accessDenied &&
                 <p>Failed to authenticate with strava</p>
             }
-
             {stravaCode !== undefined
                 ? <div>Your Strava Code is: {stravaCode}</div>
                 : <a
@@ -34,7 +32,7 @@ let LandingPage = () => {
                     href="https://www.strava.com/oauth/authorize?client_id=44056&redirect_uri=http://localhost:3000&response_type=code&scope=read"
                     rel="noopener noreferrer">
                     Log in with Strava
-          </a>
+                  </a>
             }
         </div>
     );
